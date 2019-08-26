@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualite index{% endblock %}
+
+{% block body %}
+    <h1>Actualite index</h1>
+
+
+    {% for actualite in actualites %}
+
+
+        <tr>
+            <td colspan="5">no records found</td>
+        </tr>
+
+
+        <div class="card" style="height: 20rem">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator responsive-img" style="" src="https://picsum.photos/200/300">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ actualite.theme }}<i
+                            class="material-icons right">more_vert</i></span>
+                <p><a href="#">{{ actualite.createdAt ? actualite.createdAt|date('Y-m-d H:i:s') : '' }}</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">En savoir plus<i class="material-icons right">close</i></span>
+                <p>{{ actualite.contenu }}.</p>
+            </div>
+        </div>    {% endfor %}
+    <a href="{{ path('actualite_new') }}">Create new</a>
+{% endblock %}

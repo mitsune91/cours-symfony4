@@ -1,0 +1,70 @@
+<nav class="nav-extended blue darken-4">
+    <div class="nav-wrapper">
+        <a href="{{path('home')}}" class="brand-logo"><img id="rotateOnClick" src="{{ asset('Images/music.png') }}" alt="music"></a>
+        <ul class="right hide-on-med-and-down">
+            {% if not app.user %}
+
+                    <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+            {% endif %}
+
+            <li><a href="{{ path('actualite_index') }}">Actualitées</a></li>
+        <li><a href="{{ path('artiste_index') }}">Artistes</a></li>
+        </ul>
+    </div>
+{#    <div class="nav-content">#}
+{#        <span class="nav-title">Title</span>#}
+
+{#    </div>#}
+</nav>
+{% if app.user %}
+
+
+<a href="#" data-target="slide-out" class=" button sidenav-trigger btn-floating btn-large halfway-fab waves-effect waves-light  pink accent-2"><i class="material-icons">library_music</i></a>
+<ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+            <div class="background">
+                <img  src="{{asset('uploads/images/' ~ app.user.image) }}">
+            </div>
+            <a href="#user"><img class="circle" src="{{asset('uploads/images/' ~ app.user.image) }}"></a>
+            <a href="#name"><span class="white-text name">{{app.user.pseudo}}</span></a>
+            <a href="#email"><span class="white-text email">{{app.user.email}}</span></a>
+        </div></li>
+    <li><a href="{{ path('user_edit', {'id': app.user.id}) }}"><i class="material-icons">cloud</i>Edit</a></li>
+    <li><a href={{ path('app_logout') }}>Deconnexion</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+</ul>
+{% endif %}
+{% block stylesheets %}
+    <style>
+        .button{
+            position: absolute;
+            top: 5%;
+        }
+        a:hover{
+            text-decoration: none;
+            color: white;
+        }
+        #rotateOnClick{
+            -moz-transition: transform 1s;
+            -webkit-transition: transform 1s;
+            transition: transform 1s;
+        }
+
+        #rotateOnClick:hover{
+            transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+    </style>
+{% endblock %}
+{% block javascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+});
+</script>
+{% endblock %}
