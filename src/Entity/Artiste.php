@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,22 @@ class Artiste
      * @ORM\Column(type="string", length=255)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Events", mappedBy="artiste")
+     */
+    private $events;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Songs", mappedBy="compositeur")
+     */
+    private $songs;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+        $this->songs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -102,6 +120,65 @@ class Artiste
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Events[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Events $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setArtiste($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Events $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            // set the owning side to null (unless already changed)
+            if ($event->getArtiste() === $this) {
+                $event->setArtiste(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Songs[]
+     */
+    public function getSongs(): Collection
+    {
+        return $this->songs;
+    }
+
+    public function addSong(Songs $song): self
+    {
+        if (!$this->songs->contains($song)) {
+            $this->songs[] = $song;
+            $song->addCompositeur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSong(Songs $song): self
+    {
+        if ($this->songs->contains($song)) {
+            $this->songs->removeElement($song);
+            $song->removeCompositeur($this);
+        }
 
         return $this;
     }

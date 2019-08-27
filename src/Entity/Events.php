@@ -46,6 +46,12 @@ class Events
      */
     private $prix;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Artiste", inversedBy="events")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $artiste;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +125,18 @@ class Events
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getArtiste(): ?Artiste
+    {
+        return $this->artiste;
+    }
+
+    public function setArtiste(?Artiste $artiste): self
+    {
+        $this->artiste = $artiste;
 
         return $this;
     }

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f033b1d2-3b9e-448c-b4b6-874f960fcb11" name="Default Changelist" comment="" />
+    <list default="true" id="f033b1d2-3b9e-448c-b4b6-874f960fcb11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctrine_migration_20190826125615.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctrine_migration_20190826125922.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Songs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/SongsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Artiste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Artiste.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Events.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Events.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190822142844.php" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +23,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -126,7 +139,12 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1PgM7Czc8ke3oRUCkwBvGMVQVoE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -174,11 +192,25 @@
       <workItem from="1566459692212" duration="13529000" />
       <workItem from="1566804909401" duration="69000" />
       <workItem from="1566805010526" duration="467000" />
-      <workItem from="1566805971387" duration="4795000" />
+      <workItem from="1566805971387" duration="9250000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
